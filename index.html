@@ -11,84 +11,29 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;family=Fredoka:wght@400;500;600&amp;display=swap');
         
-        :root {
-            --primary: #6366f1;
-        }
+        :root { --primary: #6366f1; }
+        body { font-family: 'Poppins', system_ui, sans-serif; }
         
-        body {
-            font-family: 'Poppins', system_ui, sans-serif;
-        }
-        
-        .fun-font {
-            font-family: 'Fredoka', 'Poppins', system_ui, sans-serif;
-            font-weight: 600;
-        }
-
-        .game-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .game-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-
-        .section-header {
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .kid-button {
-            transition: all 0.2s ease;
-            font-weight: 600;
-        }
-        
-        .kid-button:hover {
-            transform: scale(1.05);
-        }
-
-        .kid-button:active {
-            transform: scale(0.98);
-        }
-
-        .game-emoji {
-            font-size: 3.5rem;
-            line-height: 1;
-            transition: transform 0.3s ease;
-        }
-        
-        .game-card:hover .game-emoji {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .top-bar {
-            background: linear-gradient(90deg, #4f46e5, #7c3aed);
-        }
-        
-        #qrcode {
-            background: white;
-            padding: 8px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-        }
+        .fun-font { font-family: 'Fredoka', 'Poppins', system_ui, sans-serif; font-weight: 600; }
+        .game-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .game-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+        .top-bar { background: linear-gradient(90deg, #4f46e5, #7c3aed); }
+        #qrcode { background: white; padding: 8px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-50 via-white to-indigo-50 min-h-screen">
 
-    <!-- NEW: Top Scanner + Visitor Bar -->
+    <!-- Top Bar: QR + Visitor Count -->
     <div class="top-bar text-white py-3 px-6 shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <!-- QR Code -->
             <div class="flex items-center gap-x-4">
-                <div class="text-sm font-medium flex items-center gap-x-2 whitespace-nowrap">
+                <div class="text-sm font-medium flex items-center gap-x-2">
                     <i class="fas fa-qrcode text-lg"></i>
                     <span class="hidden sm:inline">Scan to Play on Mobile</span>
                 </div>
                 <div id="qrcode"></div>
             </div>
 
-            <!-- Visitor Count -->
             <div class="flex items-center gap-x-3 bg-white/20 backdrop-blur-md px-6 py-2 rounded-3xl text-sm font-medium">
                 <i class="fas fa-users"></i>
                 <span>Played by</span>
@@ -98,8 +43,8 @@
         </div>
     </div>
 
-    <!-- Original Content (Top Navigation, Hero, Games Grid, etc.) -->
-    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-x-3">
                 <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-2xl flex items-center justify-center shadow-lg">
@@ -110,123 +55,111 @@
                     <p class="text-xs text-slate-500 -mt-1">Games for Young Minds</p>
                 </div>
             </div>
-            
-            <div class="flex items-center gap-x-4">
-                <div class="hidden md:flex items-center bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-semibold">
-                    <i class="fas fa-graduation-cap mr-2"></i>
-                    <span>Ages 8–12 • Class 3–7</span>
-                </div>
-                <a href="https://pawanmaheshwari.github.io" target="_blank" 
-                   class="flex items-center gap-x-2 text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
-                    <i class="fas fa-globe"></i>
-                    <span class="hidden sm:inline">By Pawan Maheshwari</span>
-                </a>
-            </div>
+            <a href="https://pawanmaheshwari.github.io" target="_blank" class="flex items-center gap-x-2 text-sm font-medium text-slate-600 hover:text-indigo-600">
+                <i class="fas fa-globe"></i>
+                <span class="hidden sm:inline">By Pawan Maheshwari</span>
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <div class="max-w-5xl mx-auto px-6 pt-10 pb-8 text-center">
-        <div class="inline-flex items-center gap-x-2 bg-white shadow-sm border border-slate-200 rounded-full px-5 py-2 mb-6">
-            <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
-            <span class="text-sm font-semibold text-emerald-600">5 Interactive Games • 100% Offline • Works on Phone &amp; Tablet</span>
-        </div>
-        
         <h1 class="text-6xl md:text-7xl font-extrabold tracking-tighter text-slate-900 mb-4">
-            Learn <span class="section-header">AI by Playing!</span>
+            Learn <span style="background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AI by Playing!</span>
         </h1>
         <p class="max-w-2xl mx-auto text-xl text-slate-600 mb-8">
-            Fun, safe, and educational games that teach kids how AI really works — 
-            prompting, bias, history, machine learning, and responsible use.
+            5 fun interactive games to learn prompting, bias, AI history, machine learning &amp; responsible AI.
         </p>
-        
-        <div class="flex flex-wrap justify-center gap-3">
-            <div class="learning-badge flex items-center gap-x-1.5">
-                <i class="fas fa-check-circle"></i>
-                <span>No sign-up • No data collected</span>
-            </div>
-            <div class="learning-badge flex items-center gap-x-1.5 bg-amber-100 text-amber-700">
-                <i class="fas fa-lightbulb"></i>
-                <span>Aligned with AI Odyssey e-book</span>
-            </div>
-        </div>
     </div>
 
-    <!-- Games Grid (same as before) -->
+    <!-- Games Grid -->
     <div class="max-w-7xl mx-auto px-6 pb-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            <!-- Game cards remain unchanged - copy from your previous index.html -->
+            
             <!-- Game 1 -->
             <div class="game-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col">
                 <div class="h-2 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="text-6xl game-emoji">🧙‍♂️</div>
-                        <div class="px-3 py-1 bg-violet-100 text-violet-700 text-xs font-bold rounded-full flex items-center">
-                            <i class="fas fa-magic mr-1.5"></i> LEVELS
-                        </div>
-                    </div>
-                    
+                    <div class="text-6xl mb-4">🧙‍♂️</div>
                     <h3 class="font-extrabold text-2xl text-slate-900 mb-1">Prompt Wizard</h3>
-                    <p class="text-sm text-slate-600 mb-3">Help the Magic AI Genie grant wishes perfectly!</p>
-                    
-                    <div class="mt-auto">
-                        <div class="flex items-center gap-x-2 text-xs mb-3">
-                            <span class="px-2.5 py-1 bg-violet-50 text-violet-600 rounded-xl font-semibold">Prompt Engineering</span>
-                        </div>
-                        <p class="text-[13px] text-slate-500 mb-4">Learn how to write clear, specific instructions so AI gives amazing results every time.</p>
-                        
-                        <a href="01_prompt_wizard.html" 
-                           class="kid-button w-full flex items-center justify-center gap-x-2 bg-violet-600 hover:bg-violet-700 text-white font-bold py-3.5 px-6 rounded-2xl text-sm shadow-lg shadow-violet-200">
-                            <span>Play Now</span>
-                            <i class="fas fa-play ml-1"></i>
-                        </a>
-                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Master the art of talking to AI</p>
+                    <a href="01_prompt_wizard.html" class="mt-auto bg-violet-600 hover:bg-violet-700 text-white font-bold py-3.5 px-6 rounded-2xl text-center">Play Now</a>
                 </div>
             </div>
 
-            <!-- Repeat for other 4 games (Bias Buster, Time Travelers, ML Pet Trainer, Ethics Guardian) - same as previous version -->
-            <!-- ... (copy the remaining 4 game cards from your original index.html) ... -->
+            <!-- Game 2 -->
+            <div class="game-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col">
+                <div class="h-2 bg-gradient-to-r from-rose-500 to-orange-500"></div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="text-6xl mb-4">🕵️</div>
+                    <h3 class="font-extrabold text-2xl text-slate-900 mb-1">Bias Buster</h3>
+                    <p class="text-sm text-slate-600 mb-4">Spot &amp; fix unfair stereotypes</p>
+                    <a href="02_bias_buster.html" class="mt-auto bg-rose-600 hover:bg-rose-700 text-white font-bold py-3.5 px-6 rounded-2xl text-center">Start Detecting</a>
+                </div>
+            </div>
 
+            <!-- Game 3 -->
+            <div class="game-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col">
+                <div class="h-2 bg-gradient-to-r from-sky-500 to-cyan-500"></div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="text-6xl mb-4">🕰️</div>
+                    <h3 class="font-extrabold text-2xl text-slate-900 mb-1">AI Time Travelers</h3>
+                    <p class="text-sm text-slate-600 mb-4">Journey through AI history</p>
+                    <a href="03_ai_time_travelers.html" class="mt-auto bg-sky-600 hover:bg-sky-700 text-white font-bold py-3.5 px-6 rounded-2xl text-center">Begin Time Travel</a>
+                </div>
+            </div>
+
+            <!-- Game 4 -->
+            <div class="game-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col">
+                <div class="h-2 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="text-6xl mb-4">🐾</div>
+                    <h3 class="font-extrabold text-2xl text-slate-900 mb-1">ML Pet Trainer</h3>
+                    <p class="text-sm text-slate-600 mb-4">Train your own AI pet</p>
+                    <a href="04_ml_pet_trainer.html" class="mt-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-2xl text-center">Adopt &amp; Train</a>
+                </div>
+            </div>
+
+            <!-- Game 5 -->
+            <div class="game-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col">
+                <div class="h-2 bg-gradient-to-r from-amber-500 to-yellow-500"></div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="text-6xl mb-4">🛡️</div>
+                    <h3 class="font-extrabold text-2xl text-slate-900 mb-1">Ethics Guardian</h3>
+                    <p class="text-sm text-slate-600 mb-4">Make responsible AI choices</p>
+                    <a href="05_ethics_guardian.html" class="mt-auto bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-6 rounded-2xl text-center">Protect the Future</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Why These Games + Footer (same as before) -->
-    <!-- ... keep the rest of your original content ... -->
-
-    <footer class="border-t border-slate-200 bg-white">
-        <div class="max-w-7xl mx-auto px-6 py-8 text-center text-sm text-slate-500">
-            <p>© 2026 • Made for curious kids everywhere • Open source friendly • Works fully offline</p>
-            <p class="mt-1 text-xs">Tip: Download all files and open <span class="font-mono">index.html</span> in any browser. Great for school computer labs!</p>
-        </div>
+    <footer class="border-t border-slate-200 bg-white py-8 text-center text-sm text-slate-500">
+        <p>© 2026 AI Odyssey Games • Made for curious young minds</p>
+        <p class="text-xs mt-1">Works 100% offline • Perfect for school &amp; family</p>
     </footer>
 
     <script>
-        // Generate QR Code
+        // QR Code
         function generateQR() {
             new QRCode(document.getElementById("qrcode"), {
                 text: "https://pawan-maheshwari.github.io/grok-ai-games/index.html",
                 width: 128,
                 height: 128,
                 colorDark: "#1e2937",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
+                colorLight: "#ffffff"
             });
         }
 
-        // Visitor Count (using komarev - change username/repo if needed)
+        // Visitor Count
         function loadVisitorCount() {
             const countEl = document.getElementById('visitor-count');
             countEl.innerHTML = `<img src="https://komarev.com/ghpvc/?username=pawan-maheshwari&repo=grok-ai-games&label=&color=6366f1&style=flat" alt="visitors" />`;
         }
 
-        // Initialize everything
         window.onload = function() {
             generateQR();
             loadVisitorCount();
-            
-            // Your existing confetti / other scripts can go here
-            console.log('%c[AI Odyssey Games] QR Code + Visitor Counter initialized!', 'color:#6366f1');
+            console.log('%cAI Odyssey Games Hub loaded successfully!', 'color:#6366f1');
         };
     </script>
 </body>
