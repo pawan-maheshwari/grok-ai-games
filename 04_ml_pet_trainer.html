@@ -3,52 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML Pet Trainer</title>
+    <title>ML Pet Trainer • AI Odyssey</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body { font-family: system-ui; background: linear-gradient(#052e16, #14532d); color: white; }
-        .card { transition: all 0.2s; }
+        body { font-family: 'Poppins', system_ui, sans-serif; }
+        .ml-bg { background: linear-gradient(180deg, #052e16 0%, #14532d 100%); }
+        .card { transition: all 0.2s ease; }
     </style>
 </head>
-<body class="min-h-screen p-4">
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold text-center mb-8">ML Pet Trainer</h1>
+<body class="ml-bg text-emerald-100 min-h-screen p-4">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-5xl font-bold text-center my-8">ML Pet Trainer</h1>
         <div class="bg-white/10 rounded-3xl p-6">
-            <h2 class="text-2xl mb-4">Training Examples</h2>
-            <div id="grid" class="grid grid-cols-4 gap-4"></div>
-            <button onclick="train()" class="mt-6 bg-green-600 px-8 py-3 rounded-xl text-lg">TRAIN MY PET</button>
+            <div class="flex justify-between mb-4">
+                <h2 class="text-2xl">Training Examples</h2>
+                <div id="count">0/8 labeled</div>
+            </div>
+            <div id="grid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+            <button onclick="trainPet()" class="mt-8 w-full bg-emerald-600 py-4 rounded-2xl text-xl font-bold">TRAIN MY PET!</button>
         </div>
     </div>
 
     <script>
-        const items = [
-            {name: "🍎 Apple", type: "snack"},
-            {name: "🍫 Chocolate", type: "snack"},
-            {name: "🥕 Carrot", type: "snack"},
-            {name: "🧸 Teddy", type: "toy"},
-            {name: "🚗 Car", type: "toy"},
-            {name: "🍌 Banana", type: "snack"},
-            {name: "🎈 Balloon", type: "toy"},
-            {name: "🥜 Peanuts", type: "snack"}
+        let trainingData = [
+            {name: "🍎 Apple", type: "snack", label: null},
+            {name: "🍫 Chocolate", type: "snack", label: null},
+            {name: "🥕 Carrot", type: "snack", label: null},
+            {name: "🧸 Teddy Bear", type: "toy", label: null},
+            {name: "🚗 Toy Car", type: "toy", label: null},
+            {name: "🍌 Banana", type: "snack", label: null},
+            {name: "🎈 Balloon", type: "toy", label: null},
+            {name: "🥜 Peanuts", type: "snack", label: null}
         ];
 
-        function render() {
+        function renderGrid() {
             const grid = document.getElementById('grid');
             grid.innerHTML = '';
-            items.forEach((item, i) => {
+            trainingData.forEach((item, index) => {
                 const div = document.createElement('div');
-                div.className = 'card bg-white/10 p-4 rounded-2xl text-center cursor-pointer hover:bg-white/20';
-                div.innerHTML = `<div class="text-5xl">${item.name.split(' ')[0]}</div><div class="text-sm mt-2">${item.name}</div>`;
-                div.onclick = () => alert(`Choose for ${item.name}: SNACK or TOY (demo)`);
+                div.className = `card bg-white/10 p-6 rounded-3xl text-center cursor-pointer ${item.label ? 'ring-2 ring-emerald-400' : 'hover:bg-white/20'}`;
+                div.innerHTML = `
+                    <div class="text-6xl mb-3">${item.name.split(' ')[0]}</div>
+                    <div class="font-bold">${item.name}</div>
+                    ${item.label ? `<div class="text-xs mt-2 ${item.label === 'snack' ? 'text-emerald-400' : 'text-orange-400'}">${item.label.toUpperCase()}</div>` : ''}
+                `;
+                div.onclick = () => labelItem(index);
                 grid.appendChild(div);
             });
+            document.getElementById('count').textContent = `${trainingData.filter(i => i.label).length}/8 labeled`;
         }
 
-        function train() {
-            alert("Pet trained! (Full version with corrections coming)");
+        function labelItem(index) {
+            const item = trainingData[index];
+            const choice = confirm(`Is "${item.name}" a YUMMY SNACK or FUN TOY?\nOK = SNACK, Cancel = TOY`);
+            item.label = choice ? 'snack' : 'toy';
+            renderGrid();
         }
 
-        render();
+        function trainPet() {
+            const labeled = trainingData.filter(i => i.label).length;
+            if (labeled < 4) {
+                alert("Label at least 4 items first!");
+                return;
+            }
+            alert("Pet trained successfully! (Full Test Your Pet section ready in next update)");
+            // Add full logic here later
+        }
+
+        renderGrid();
     </script>
 </body>
 </html>
