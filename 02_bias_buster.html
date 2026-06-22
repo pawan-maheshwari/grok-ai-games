@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🕵️ Bias Buster • AI Odyssey Games</title>
+    <title>🕵️ Bias Buster • AI Odyssey Games (FIXED)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -31,7 +31,7 @@
             <div class="flex items-center gap-x-4">
                 <div class="bg-white/10 px-5 py-2 rounded-2xl flex items-center text-sm">
                     <span class="font-extrabold text-2xl text-emerald-400" id="total-score">0</span>
-                    <span class="text-white/50 ml-1.5">/ 400</span>
+                    <span class="text-white/50 ml-1.5">/ 280</span>
                 </div>
                 <div class="bg-white/10 px-4 py-2 rounded-2xl text-sm font-bold flex items-center gap-x-2">
                     <i class="fas fa-search text-amber-400"></i>
@@ -85,7 +85,7 @@
                     <div id="found-count" class="text-xs font-bold text-emerald-600"></div>
                 </div>
                 
-                <!-- Interactive text with spans -->
+                <!-- Interactive text with clickable spans -->
                 <div id="interactive-text" class="bg-white border-2 border-dashed border-amber-200 p-5 rounded-2xl text-[15px] leading-relaxed min-h-[118px]">
                     <!-- JS inserts clickable spans -->
                 </div>
@@ -140,7 +140,7 @@
         <div id="completion-screen" class="hidden text-center bg-white text-slate-900 rounded-3xl p-9 shadow-2xl">
             <div class="text-6xl mb-3">🦸</div>
             <h2 class="text-4xl font-extrabold tracking-tight">Fairness Champion!</h2>
-            <p class="mt-2 text-xl text-emerald-600 font-semibold">Total Score: <span id="final-score"></span>/400</p>
+            <p class="mt-2 text-xl text-emerald-600 font-semibold">Total Score: <span id="final-score"></span>/280</p>
             
             <div class="my-7 inline-flex bg-gradient-to-r from-emerald-400 to-teal-400 text-white px-8 py-3.5 rounded-3xl items-center gap-x-4 shadow-inner">
                 <i class="fas fa-medal text-3xl"></i>
@@ -288,7 +288,7 @@
                 if (idx < c.biasSpans.length) correct++;
             });
             
-            // Calculate score
+            // Calculate score (adjusted for realistic max ~280)
             let caseScore = Math.round((correct / c.correctBiasCount) * 70);
             if (selectedBiases.length > c.correctBiasCount) caseScore -= 15; // penalty for extra clicks
             
@@ -380,7 +380,7 @@
                 }
             });
             
-            console.log('%c[Bias Buster] Educational game ready. Teaches real bias detection in AI-generated content.', 'color:#64748b');
+            console.log('%c[Bias Buster FIXED] Score total now matches realistic max (280). Perfect play = 280/280.', 'color:#64748b');
         }
         
         window.onload = initGame;
