@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Odyssey Games - Learn AI by Playing!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', system_ui, sans-serif; }
+        .ad-frame {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border: 0;
+            display: block;
+            background: #0e0a14;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-violet-900 text-white min-h-screen">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-12">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-3xl">🧠</div>
+                <div>
+                    <h1 class="text-4xl font-bold">AI Odyssey</h1>
+                    <p class="text-sm text-white/70">Games for Young Minds</p>
+                </div>
+            </div>
+            <div class="bg-white/10 px-6 py-3 rounded-3xl flex items-center gap-3">
+                <i class="fas fa-users"></i>
+                <span>Played by <span id="player-count" class="font-bold text-yellow-400">144</span> players</span>
+            </div>
+        </div>
+
+        <div class="text-center mb-16">
+            <h2 class="text-6xl font-bold mb-6">Learn AI by Playing!</h2>
+            <p class="text-2xl text-white/80">5 fun interactive games</p>
+        </div>
+
+        <!-- Top band: Scanner + AI Odyssey ad -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-16">
+            <!-- Scanner -->
+            <div class="bg-white p-6 rounded-3xl flex flex-col items-center justify-center">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://pawan-maheshwari.github.io/grok-ai-games/" alt="Scan to Play" class="mx-auto">
+                <p class="text-center text-sm mt-4 text-black">Scan to Play on Mobile</p>
+            </div>
+
+            <!-- AI Odyssey ad -->
+            <div class="bg-white/10 rounded-3xl p-4 flex flex-col">
+                <div class="flex items-center justify-between mb-3 px-1">
+                    <span class="text-xs font-bold tracking-widest text-yellow-400 uppercase">Featured</span>
+                    <span class="text-xs text-white/60 uppercase tracking-wider">Sponsored</span>
+                </div>
+                <div class="rounded-2xl overflow-hidden">
+                    <iframe class="ad-frame" src="AI_Odyssey_BookSigning_AnimatedCover.html" title="AI Odyssey — Book Signing" loading="lazy" scrolling="no"></iframe>
+                </div>
+                <div class="mt-3 px-1">
+                    <h3 class="text-lg font-bold">AI Odyssey — The Book</h3>
+                    <p class="text-sm text-white/70">Join the book signing. Read the story behind the games.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white/10 rounded-3xl p-8 hover:bg-white/20 transition-all">
+                <div class="text-7xl mb-6">🧙</div>
+                <h3 class="text-2xl font-bold mb-2">Prompt Wizard</h3>
+                <p class="text-white/70 mb-8">Master the art of talking to AI</p>
+                <a href="01_prompt_wizard.html" class="block w-full py-4 bg-violet-600 rounded-2xl text-center font-bold">Play Now</a>
+            </div>
+            <div class="bg-white/10 rounded-3xl p-8 hover:bg-white/20 transition-all">
+                <div class="text-7xl mb-6">🕵️</div>
+                <h3 class="text-2xl font-bold mb-2">Bias Buster</h3>
+                <p class="text-white/70 mb-8">Spot & fix unfair stereotypes</p>
+                <a href="02_bias_buster.html" class="block w-full py-4 bg-amber-600 rounded-2xl text-center font-bold">Start Detecting</a>
+            </div>
+            <div class="bg-white/10 rounded-3xl p-8 hover:bg-white/20 transition-all">
+                <div class="text-7xl mb-6">⏰</div>
+                <h3 class="text-2xl font-bold mb-2">AI Time Travelers</h3>
+                <p class="text-white/70 mb-8">Journey through AI history</p>
+                <a href="03_ai_time_travelers.html" class="block w-full py-4 bg-blue-600 rounded-2xl text-center font-bold">Begin Time Travel</a>
+            </div>
+            <div class="bg-white/10 rounded-3xl p-8 hover:bg-white/20 transition-all">
+                <div class="text-7xl mb-6">🐾</div>
+                <h3 class="text-2xl font-bold mb-2">ML Pet Trainer</h3>
+                <p class="text-white/70 mb-8">Train your own AI pet</p>
+                <a href="04_ml_pet_trainer.html" class="block w-full py-4 bg-emerald-600 rounded-2xl text-center font-bold">Adopt & Train</a>
+            </div>
+            <div class="bg-white/10 rounded-3xl p-8 hover:bg-white/20 transition-all">
+                <div class="text-7xl mb-6">🛡️</div>
+                <h3 class="text-2xl font-bold mb-2">Ethics Guardian</h3>
+                <p class="text-white/70 mb-8">Make responsible AI choices</p>
+                <a href="05_ethics_guardian.html" class="block w-full py-4 bg-orange-600 rounded-2xl text-center font-bold">Protect the Future</a>
+            </div>
+        </div>
+
+        <div class="text-center text-white/50 mt-20 text-sm">
+            © 2026 AI Odyssey Games • Made for curious young minds<br>
+            Works 100% offline • Perfect for school & family
+        </div>
+    </div>
+
+    <script>
+        // Player counter
+        let count = parseInt(localStorage.getItem('aiOdysseyPlayers') || '144');
+        count++;
+        localStorage.setItem('aiOdysseyPlayers', count);
+        document.getElementById('player-count').innerText = count;
+    </script>
+</body>
+</html>
